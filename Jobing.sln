@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobing.Repositories", "Jobing.Repositories\Jobing.Repositories.csproj", "{09B28289-ECF0-4B01-91D1-FFCDEC36276F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobing.Services", "Jobing.Services\Jobing.Services.csproj", "{FD92A38F-17AF-426C-8956-85A8774F52A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobing.API", "Jobing.API\Jobing.API.csproj", "{65C7EB07-F7AD-41CD-9C4E-41C872138384}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09B28289-ECF0-4B01-91D1-FFCDEC36276F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B28289-ECF0-4B01-91D1-FFCDEC36276F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B28289-ECF0-4B01-91D1-FFCDEC36276F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B28289-ECF0-4B01-91D1-FFCDEC36276F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD92A38F-17AF-426C-8956-85A8774F52A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD92A38F-17AF-426C-8956-85A8774F52A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD92A38F-17AF-426C-8956-85A8774F52A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD92A38F-17AF-426C-8956-85A8774F52A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65C7EB07-F7AD-41CD-9C4E-41C872138384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C7EB07-F7AD-41CD-9C4E-41C872138384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C7EB07-F7AD-41CD-9C4E-41C872138384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C7EB07-F7AD-41CD-9C4E-41C872138384}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
