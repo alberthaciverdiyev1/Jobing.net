@@ -1,3 +1,3 @@
 namespace Services.Cities.Update;
 
-public record UpdateCityRequest(string Name, bool IsActive);
+public record UpdateCityRequest(int Id, string Name, bool IsActive);

@@ -10,7 +10,9 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<City, CityDto>().ReverseMap();
-     //   CreateMap<CreateCityRequest, City>();
-       // CreateMap<UpdateCityRequest, City>();
+        CreateMap<CreateCityRequest, City>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.ToLowerInvariant()));
+        CreateMap<UpdateCityRequest, City>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.ToLowerInvariant()));
     }
 }

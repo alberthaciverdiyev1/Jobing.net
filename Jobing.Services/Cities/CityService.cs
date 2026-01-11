@@ -74,11 +74,8 @@ public class CityService(
         //     return ServiceResult<CreateCityResponse>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList());
         // }
 
-        var city = new City()
-        {
-            Name = request.Name,
-            IsActive = request.IsActive
-        };
+        var city = mapper.Map<City>(request);
+
         await cityRepository.AddAsync(city);
         await unitOfWork.SaveChangesAsync();
         return ServiceResult<CreateCityResponse>.Success(new CreateCityResponse(city.Id, city.Name, city.IsActive,
@@ -94,8 +91,14 @@ public class CityService(
             return ServiceResult.Fail("City not found", HttpStatusCode.NotFound);
         }
 
-        city.Name = request.Name;
-        city.IsActive = request.IsActive;
+        var isCityNameExistAnyAsync =
+            await cityRepository.Where(x => x.Name == request.Name && x.Id != request.Id).AnyAsync();
+        if (isCityNameExistAnyAsync)
+        {
+            return ServiceResult.Fail("City with the same name already exists", HttpStatusCode.Conflict);
+        }
+
+        city = mapper.Map(request, city);
 
         cityRepository.Update(city);
         await unitOfWork.SaveChangesAsync();

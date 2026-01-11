@@ -19,7 +19,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelS
 
 var app = builder.Build();
 
-app.UseExceptionHandler();
+app.UseExceptionHandler(x => { });
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

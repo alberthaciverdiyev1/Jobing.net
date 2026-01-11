@@ -5,7 +5,6 @@ namespace Services.Cities.Create;
 
 public class CreateCityRequestValidator : AbstractValidator<CreateCityRequest>
 {
-    private readonly ICityInterface _cityRepository;
 
     public CreateCityRequestValidator()
     {
