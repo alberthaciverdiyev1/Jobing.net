@@ -1,4 +1,4 @@
-namespace Repositories.Company;
+namespace Repositories.Companies;
 
 public class Company : MultiLangEntityBase, IAuditEntity
 {

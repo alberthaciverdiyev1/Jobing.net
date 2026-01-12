@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repositories.Categories;
 using Repositories.Cities;
+using Repositories.Companies;
 using Repositories.Database;
 using Repositories.Generics;
 
@@ -24,6 +25,8 @@ public static class RepositoryExtension
 
         services.AddScoped<ICityInterface, CityRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ICompanyRepository, CompanyRepository>();
+        
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
