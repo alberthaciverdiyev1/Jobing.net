@@ -31,6 +31,11 @@ public class AuditDbContextInterceptors:SaveChangesInterceptor
                     }
                     break;
                 case EntityState.Deleted:
+                    if (entityEntry.Entity is IAuditEntity auditDeleteEntity)
+                    {
+                        auditDeleteEntity.DeletedAt = DateTime.UtcNow;
+
+                    }
                     break;
                 default:
                     continue;
