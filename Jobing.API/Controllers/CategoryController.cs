@@ -12,6 +12,12 @@ public class CategoryController(ICategoryService categoryService) : CustomBaseCo
 
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id) => CreateActionResult(await categoryService.GetByIdAsync(id));
+    
+    [HttpGet("children/{id:int}")]
+    public async Task<IActionResult> GetChildren(int id) => CreateActionResult(await categoryService.GetChildrenAsync(id));
+    
+    [HttpGet("with-children")]
+    public async Task<IActionResult> GetAllWithChildren() => CreateActionResult(await categoryService.GetAllWithChildrenAsync());
 
     [HttpPost]
     public async Task<IActionResult> Create(CreateCategoryRequest request) =>

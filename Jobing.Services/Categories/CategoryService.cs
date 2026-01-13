@@ -24,6 +24,24 @@ public class CategoryService(
         return ServiceResult<List<CategoryDto>>.Success(categoriesAsDto);
     }
 
+
+    public async Task<ServiceResult<IReadOnlyList<CategoryDto>>> GetChildrenAsync(int id)
+    {
+        var children = await categoryRepository.GetChildrenAsync(id);
+        var childrenAsDto = mapper.Map<IReadOnlyList<CategoryDto>>(children);
+        return ServiceResult<IReadOnlyList<CategoryDto>>.Success(childrenAsDto);
+    }
+
+    public async Task<ServiceResult<IReadOnlyList<CategoryDto>>> GetAllWithChildrenAsync()
+    {
+        var categories = await categoryRepository.GetAllWithChildrenAsync();
+        var categoriesAsDto = mapper.Map<IReadOnlyList<CategoryDto>>(categories);
+        
+        return ServiceResult<IReadOnlyList<CategoryDto>>.Success(categoriesAsDto);
+        
+    }
+
+
     public async Task<ServiceResult<CategoryDto?>> GetByIdAsync(int id)
     {
         var category = await categoryRepository.GetByIdAsync(id);
@@ -37,6 +55,8 @@ public class CategoryService(
 
         return ServiceResult<CategoryDto?>.Success(categoryAsDto);
     }
+
+
 
     public async Task<ServiceResult<CreateCategoryResponse>> CreateAsync(CreateCategoryRequest request)
     {

@@ -7,6 +7,11 @@ public interface ICategoryService
 {
     public Task<ServiceResult<List<CategoryDto>>> GetAll();
     public Task<ServiceResult<CategoryDto?>> GetByIdAsync(int id);
+
+    public Task<ServiceResult<IReadOnlyList<CategoryDto>>> GetChildrenAsync(int id);
+    public Task<ServiceResult<IReadOnlyList<CategoryDto>>> GetAllWithChildrenAsync();
+
+
     public Task<ServiceResult<CreateCategoryResponse>> CreateAsync(CreateCategoryRequest request);
     public Task<ServiceResult> UpdateAsync(int id, UpdateCategoryRequest request);
     public Task<ServiceResult> DeleteAsync(int id);

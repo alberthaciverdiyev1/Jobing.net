@@ -13,9 +13,17 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
         builder.Property(x=>x.NameRu).IsRequired().HasMaxLength(100);
         builder.Property(x=>x.NameTr).IsRequired().HasMaxLength(100);
         builder.Property(x=>x.NameEn).IsRequired().HasMaxLength(100);
+        builder.Property(x=>x.Icon).IsRequired().HasMaxLength(100);
+        builder.Property(x=>x.ParentId).IsRequired(false);
         builder.Property(x=>x.IsActive).IsRequired().HasDefaultValue(true);
         builder.Property(x=>x.CreatedAt).IsRequired().HasDefaultValue(DateTime.UtcNow);
         builder.Property(x=>x.UpdatedAt).IsRequired().HasDefaultValue(null);
         builder.Property(x=>x.DeletedAt).IsRequired().HasDefaultValue(null);
+        
+        builder
+            .HasOne<Category>()         
+            .WithMany()               
+            .HasForeignKey(c => c.ParentId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
