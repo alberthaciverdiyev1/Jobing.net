@@ -6,6 +6,7 @@ using Repositories.Cities;
 using Repositories.Companies;
 using Repositories.Database;
 using Repositories.Generics;
+using Repositories.LookupItems;
 
 namespace Repositories.Extensions;
 
@@ -26,6 +27,7 @@ public static class RepositoryExtension
         services.AddScoped<ICityInterface, CityRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<ICompanyRepository, CompanyRepository>();
+        services.AddScoped<ILookupItemRepository, LookupItemRepository>();
         
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
